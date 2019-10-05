@@ -1,19 +1,10 @@
-
 # coding: utf-8
-
-# In[4]:
-
 
 from sklearn.externals.joblib import load
 from sklearn.ensemble import BaggingClassifier
-
 from flask import Flask
 from flask_restful import Resource, Api
 from flask_restful import reqparse
-
-
-# In[15]:
-
 
 app = Flask(__name__)
 api = Api(app)
@@ -51,8 +42,7 @@ class Prediction(Resource):
                 args['sulphates'], 
                 args['alcohol']
                 ]])
-        
-        # Функция возвращает
+
         return {
 #                 'fixed acidity': args['fixed acidity'], 
 #                 'volatile acidity': args['volatile acidity'], 
@@ -93,16 +83,3 @@ api.add_resource(Prediction, '/prediction')
 
 if __name__ == '__main__':
     app.run(debug=False)
-
-
-# In[3]:
-
-
-# import numpy as np
-
-# Features = np.asarray([7.4,0.70,0.00,1.9,0.076,11.0,34.0,0.9978,3.51,0.56,9.4])
-# Features = inputFeatures.reshape(1, -1)
-# Predict =  predict(Features)
-
-# print(Predict)
-
